@@ -9,6 +9,7 @@
   "author": "Eirik S. Morland <eirik@morland.no>",
   "license": "ISC",
   "dependencies": {
+    "ambient-attx4": "^0.2.8",
     "nodejs-websocket": "^1.5.0"
   }
 }
