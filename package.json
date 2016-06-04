@@ -4,12 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "eslint ."
   },
   "author": "Eirik S. Morland <eirik@morland.no>",
   "license": "ISC",
   "dependencies": {
     "ambient-attx4": "^0.2.8",
     "nodejs-websocket": "^1.5.0"
+  },
+  "devDependencies": {
+    "eslint": "^2.11.1"
   }
 }
