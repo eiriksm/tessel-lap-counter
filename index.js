@@ -1,16 +1,19 @@
 'use strict';
-// The level of sound the lap counter makes.
-var level = 0.07;
 var config = require('./config');
 var tessel = require('tessel');
 var ws = require('nodejs-websocket');
 var ambientlib = require('ambient-attx4');
 var ambient = ambientlib.use(tessel.port[config.tesselPort]);
-// Change this to "true" to display more verbose output.
+
 function logger() {
   console.log.apply(console, arguments);
 }
+
+// The level of sound the lap counter makes.
+var level = 0.07;
+// Such clever use of connection state globally.
 var connection = false;
+
 ambient.on('ready', function () {
   logger('ambient ready');
   ambient.setSoundTrigger(level);
@@ -24,12 +27,12 @@ ambient.on('ready', function () {
       connection.send('lap');
     }
 
-    // Clear it
+    // Clear it.
     ambient.clearSoundTrigger();
 
-    // After .5 seconds reset sound trigger
+    // After .5 seconds reset sound trigger.
     setTimeout(function () {
-        ambient.setSoundTrigger(level);
+      ambient.setSoundTrigger(level);
     }, 1500);
   });
 });
